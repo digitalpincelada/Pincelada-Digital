@@ -10,7 +10,8 @@ struct TAdmin{
     string IdAdmin = "", SenhaAdmin = "", confSenhAdmin;
 };
 struct TLogin{
-
+    //Variávies de Login
+    string IdAutenticacao, SenhaAutenticacao,confSenhAutentic;
 };
 /* ==== Modulo do Menu Principal ==== */
 void MenuPrincipal(){
@@ -45,7 +46,7 @@ int main()
     //Variáveis de Escolha dos Menus
     int opMenuPrincipal, opMenuCadastro, opMenuCargo;
     //Variávies de Login
-    string IdAutenticacao, SenhaAutenticacao,confSenhAutentic;
+    array<TLogin, MaxTamLogin> login;
     //Variaveis Funcionário
     string idFuncionario, nomeFuncionario, cpfFuncionario,emailFuncionario, senhaFuncionario, confSenhaFuncionario, cargo;
     //Variaveis Cliente

@@ -77,6 +77,7 @@ int main()
                 system("pause");
                 }
                 cout<<endl<<"========================="<<endl;
+                contAdmin++;
             }while(acessAdmin.at(contAdmin).confSenhAdmin != acessAdmin.at(contAdmin).SenhaAdmin);   
         }
     }
@@ -89,23 +90,23 @@ int main()
             system("cls");
             cout<<endl<<"======== Login ========"
                 <<endl<<"Id Funcionario...: ";
-            getline(cin, IdAutenticacao);
+            getline(cin, login.at(contLogin).IdAutenticacao);
             cout<<endl<<"Senha...: ";
-            getline(cin, SenhaAutenticacao);
+            getline(cin, login.at(contLogin).SenhaAutenticacao);
             cout<<endl<<"Senha novamente...: ";
-            getline(cin, confSenhAutentic);
+            getline(cin, login.at(contLogin).confSenhAutentic);
             cout<<endl<<"======================="<<endl;
             // Mensagens de erro
-            if(IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin) {
+            if(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin) {
                 cout<<endl<<"ID incorreto, tente novamente."<<endl;
                 system("pause");
             }
-            else if(SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin){
+            else if(login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin){
                 cout<<endl<<"Senha incorreta, tente novamente."<<endl;
                 system("pause");
             }  
-        }while(confSenhAutentic != SenhaAutenticacao); 
-    } while(IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin || SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin);
+        }while(login.at(contLogin).confSenhAutentic != login.at(contLogin).SenhaAutenticacao); 
+    } while(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin || login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin);
     
     //Mensagem de Autenticação
     cout<<endl<<"Login realizado com sucesso!"<<endl;

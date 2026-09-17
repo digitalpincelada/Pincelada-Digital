@@ -1,0 +1,49 @@
+[MÓDULO DE CADASTRO]
+
+PROJETO/EQUIPE: 4
+
+Lista das Funcionalidades(Requisitos) e Dados de Cadastro:
+
+01. Cadastro dos Funcionário
+- Id_Funcionario, int
+- Nome Completo, String
+- CPF, int
+- e-mail, String
+- senha, String
+- Cargo, String
+
+02. Cadastro de Clientes
+- Id_Cliente, int
+- Nome Completo , String
+- CPF/CNPJ, int
+- e-mail, String
+- telefone, int
+- endereço, string
+
+03. Cadastro de Fornecedor
+- Id_Fornecedor, int
+- Nome, String
+- CNPJ, int
+- Endereço, String
+- Telefone, int
+- e-mail, string
+
+04. Cadastro de Produto
+- Id_Produto, int
+- Preco, float
+- Nome, String
+- Marca, String
+- Lote, int
+- Id_Fornecedor, int
+- Data_Validade, int
+
+05. Cadastro de Venda
+- Id_Venda, int
+- Id_Funcionario, int
+- Id_Cliente, int
+- Id_Produto, int
+- Quantidade_Produto, int
+- Forma de Pagamento, int
+- Data_venda, int
+
+

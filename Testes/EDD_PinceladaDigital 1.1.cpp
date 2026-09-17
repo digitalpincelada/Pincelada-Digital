@@ -85,27 +85,27 @@ int main()
         cout<<endl<<"Cadastro de Administradores está completo!!";
     }
     // Laço de repetição Autenticação
-    do {
-        do{
-            system("cls");
-            cout<<endl<<"======== Login ========"
-                <<endl<<"Id Funcionario...: ";
-            getline(cin, login.at(contLogin).IdAutenticacao);
-            cout<<endl<<"Senha...: ";
-            getline(cin, login.at(contLogin).SenhaAutenticacao);
-            cout<<endl<<"Senha novamente...: ";
-            getline(cin, login.at(contLogin).confSenhAutentic);
-            cout<<endl<<"======================="<<endl;
-            // Mensagens de erro
-            if(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin) {
-                cout<<endl<<"ID incorreto, tente novamente."<<endl;
-                system("pause");
-            }
-            else if(login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin){
-                cout<<endl<<"Senha incorreta, tente novamente."<<endl;
-                system("pause");
-            }  
-        }while(login.at(contLogin).confSenhAutentic != login.at(contLogin).SenhaAutenticacao); 
+    do { 
+        system("cls");
+        cout<<endl<<"======== Login ========"
+            <<endl<<"Id Funcionario...: ";
+            do{
+                getline(cin, login.at(contLogin).IdAutenticacao);
+                cout<<endl<<"Senha...: ";
+                getline(cin, login.at(contLogin).SenhaAutenticacao);
+                cout<<endl<<"Senha novamente...: ";
+                getline(cin, login.at(contLogin).confSenhAutentic);
+                cout<<endl<<"======================="<<endl;
+                // Mensagens de erro
+                if(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin) {
+                    cout<<endl<<"ID incorreto, tente novamente."<<endl;
+                    system("pause");
+                }
+                else if(login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin){
+                    cout<<endl<<"Senha incorreta, tente novamente."<<endl;
+                    system("pause");
+                }  
+            }while(login.at(contLogin).confSenhAutentic != login.at(contLogin).SenhaAutenticacao); 
     } while(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin || login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin);
     
     //Mensagem de Autenticação

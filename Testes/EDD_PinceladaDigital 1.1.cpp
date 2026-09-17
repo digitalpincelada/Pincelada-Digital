@@ -46,7 +46,9 @@ int main()
     //Variáveis de Escolha dos Menus
     int opMenuPrincipal, opMenuCadastro, opMenuCargo;
     //Variávies de Login
+    const int MaxTamLogin = 10;
     array<TLogin, MaxTamLogin> login;
+    int contLogin = 0;
     //Variaveis Funcionário
     string idFuncionario, nomeFuncionario, cpfFuncionario,emailFuncionario, senhaFuncionario, confSenhaFuncionario, cargo;
     //Variaveis Cliente
@@ -77,6 +79,9 @@ int main()
                 cout<<endl<<"========================="<<endl;
             }while(acessAdmin.at(contAdmin).confSenhAdmin != acessAdmin.at(contAdmin).SenhaAdmin);   
         }
+    }
+    else{
+        cout<<endl<<"Cadastro de Administradores está completo!!";
     }
     // Laço de repetição Autenticação
     do {

@@ -39,12 +39,12 @@ void MenuCadastro(){
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
+    //Variáveis de Escolha dos Menus
+    int opMenuPrincipal, opMenuCadastro, opMenuCargo;
     //Variavéis de Primeiro acesso no sistema
     const int MaxTamAdmin = 1;
     array<TAdmin, MaxTamAdmin> acessAdmin;
     int contAdmin=0;
-    //Variáveis de Escolha dos Menus
-    int opMenuPrincipal, opMenuCadastro, opMenuCargo;
     //Variávies de Login
     const int MaxTamLogin = 10;
     array<TLogin, MaxTamLogin> login;

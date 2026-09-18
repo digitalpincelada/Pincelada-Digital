@@ -58,56 +58,65 @@ int main()
     //Variaveis Fornecedores
     string idFornecedor, nomeFornecedor, cnpjFornecedor, enderecoFornecedor, telefoneFornecedor, emailFornecedor;
     
-    //Primeiro acesso no sistema
+    // Verificação se o máximo de admins foi atingido
     if(contAdmin < MaxTamAdmin){
+        //Primeiro acesso no sistema
         if(acessAdmin.at(contAdmin).IdAdmin == ""){
-            do{
-                cout<<endl<<"==== Primeiro Acesso ===="
-                    <<endl<<"Nenhum administrador foi encontrado!!"
-                    <<endl<<"Crie sua conta de admin agora: "<<endl
-                    <<endl<<"Crie um Id (ex: xxxx)...: ";
+            //Laço de repetição de verificação de senha
+            cout<<endl<<"==== Primeiro Acesso ===="
+                <<endl<<"Nenhum administrador foi encontrado!!"
+                <<endl<<"Crie sua conta de admin agora: "<<endl
+                <<endl<<"Crie um Id (ex: xxxx)...: ";
                 getline(cin, acessAdmin.at(contAdmin).IdAdmin);
-                cout<<endl<<"Crie uma senha do Admin...: ";
-                getline(cin, acessAdmin.at(contAdmin).SenhaAdmin);
-                cout<<endl<<"Insira a senha novamente...: ";
-                getline(cin,acessAdmin.at(contAdmin).confSenhAdmin);
-                //Mensagem de erro para senhas diferentes
-                if(acessAdmin.at(contAdmin).confSenhAdmin != acessAdmin.at(contAdmin).SenhaAdmin){
-                cout<<endl<<"Senhas diferentes, tente novamente!!"<<endl;
-                system("pause");
-                }
-                cout<<endl<<"========================="<<endl;
-                contAdmin++;
-            }while(acessAdmin.at(contAdmin).confSenhAdmin != acessAdmin.at(contAdmin).SenhaAdmin);   
+                do{
+                    cout<<endl<<"Crie uma senha do Admin...: ";
+                    getline(cin, acessAdmin.at(contAdmin).SenhaAdmin);
+                    cout<<endl<<"Insira a senha novamente...: ";
+                    getline(cin,acessAdmin.at(contAdmin).confSenhAdmin);
+                    //Mensagem de erro para senhas diferentes
+                    if(acessAdmin.at(contAdmin).confSenhAdmin != acessAdmin.at(contAdmin).SenhaAdmin){
+                    cout<<endl<<"Senhas diferentes, tente novamente!!"<<endl;
+                    system("pause");
+                    }
+                }while(acessAdmin.at(contAdmin).confSenhAdmin != acessAdmin.at(contAdmin).SenhaAdmin);
+                contAdmin++;  
         }
     }
     else{
         cout<<endl<<"Cadastro de Administradores está completo!!";
     }
-    // Laço de repetição Autenticação
-    do { 
-        system("cls");
-        cout<<endl<<"======== Login ========"
-            <<endl<<"Id Funcionario...: ";
-            do{
-                getline(cin, login.at(contLogin).IdAutenticacao);
-                cout<<endl<<"Senha...: ";
-                getline(cin, login.at(contLogin).SenhaAutenticacao);
-                cout<<endl<<"Senha novamente...: ";
-                getline(cin, login.at(contLogin).confSenhAutentic);
-                cout<<endl<<"======================="<<endl;
-                // Mensagens de erro
-                if(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin) {
-                    cout<<endl<<"ID incorreto, tente novamente."<<endl;
-                    system("pause");
-                }
-                else if(login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin){
-                    cout<<endl<<"Senha incorreta, tente novamente."<<endl;
-                    system("pause");
-                }  
-            }while(login.at(contLogin).confSenhAutentic != login.at(contLogin).SenhaAutenticacao); 
-    } while(login.at(contLogin).IdAutenticacao != acessAdmin.at(contAdmin).IdAdmin || login.at(contLogin).SenhaAutenticacao != acessAdmin.at(contAdmin).SenhaAdmin);
+    // Verificação se o máximo de logins foi atingido
+    if(contLogin < MaxTamLogin){
+        // Laço de repetição Autenticação
+        do { 
+            system("cls");
+            cout<<endl<<"======== Login ========"
+                <<endl<<"Id Funcionario...: ";
+                //Laço de repetição de verificação de senha
+                do{
+                    getline(cin, login.at(contLogin).IdAutenticacao);
+                    cout<<endl<<"Senha...: ";
+                    getline(cin, login.at(contLogin).SenhaAutenticacao);
+                    cout<<endl<<"Senha novamente...: ";
+                    getline(cin, login.at(contLogin).confSenhAutentic);
+                    cout<<endl<<"======================="<<endl;
+                    // Mensagens de erro
+                    if(login.at(contLogin).IdAutenticacao != acessAdmin.at(0).IdAdmin) {
+                        cout<<endl<<"ID incorreto, tente novamente."<<endl;
+                        system("pause");
+                    }
+                    else if(login.at(contLogin).SenhaAutenticacao != acessAdmin.at(0).SenhaAdmin){
+                        cout<<endl<<"Senha incorreta, tente novamente."<<endl;
+                        system("pause");
+                    }  
+                }while(login.at(contLogin).confSenhAutentic != login.at(contLogin).SenhaAutenticacao); 
     
+        }while(login.at(contLogin).IdAutenticacao != acessAdmin.at(0).IdAdmin || login.at(contLogin).SenhaAutenticacao != acessAdmin.at(0).SenhaAdmin);
+    contLogin++;
+    }
+    else{
+        cout<<endl<<"Máximo de login por instancia atingido! Saia do sistema para reiniciar.";
+    }
     //Mensagem de Autenticação
     cout<<endl<<"Login realizado com sucesso!"<<endl;
     system("pause");

@@ -92,14 +92,10 @@ int main()
             system("cls");
             cout<<endl<<"======== Login ========"
                 <<endl<<"Id Funcionario...: ";
+            getline(cin, login.at(contLogin).IdAutenticacao);
                 //Laço de repetição de verificação de senha
-                do{
-                    getline(cin, login.at(contLogin).IdAutenticacao);
                     cout<<endl<<"Senha...: ";
                     getline(cin, login.at(contLogin).SenhaAutenticacao);
-                    cout<<endl<<"Senha novamente...: ";
-                    getline(cin, login.at(contLogin).confSenhAutentic);
-                    cout<<endl<<"======================="<<endl;
                     // Mensagens de erro
                     if(login.at(contLogin).IdAutenticacao != acessAdmin.at(0).IdAdmin) {
                         cout<<endl<<"ID incorreto, tente novamente."<<endl;
@@ -109,8 +105,6 @@ int main()
                         cout<<endl<<"Senha incorreta, tente novamente."<<endl;
                         system("pause");
                     }  
-                }while(login.at(contLogin).confSenhAutentic != login.at(contLogin).SenhaAutenticacao); 
-    
         }while(login.at(contLogin).IdAutenticacao != acessAdmin.at(0).IdAdmin || login.at(contLogin).SenhaAutenticacao != acessAdmin.at(0).SenhaAdmin);
     contLogin++;
     }

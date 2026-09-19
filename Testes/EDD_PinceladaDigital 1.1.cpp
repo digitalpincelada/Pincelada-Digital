@@ -195,7 +195,8 @@ int main()
                         //Exibição das informações de Cadastro do funcionário
                         system("cls");
                         cout<<endl<<"==== Cadastro realizado com sucesso ===="
-                            <<endl<<"ID: 1234-1"
+                      git pull origin main --allow-unrelated-histories
+      <<endl<<"ID: 1234-1"
                             <<endl<<"Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario
                             <<endl<<"CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario
                             <<endl<<"E-mail: "<<CdFuncionario.at(contFuncion).emailFuncionario

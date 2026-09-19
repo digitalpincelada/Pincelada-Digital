@@ -6,12 +6,15 @@ using namespace std;
 
 
 struct TAdmin{
-    //Variav√©is de Primeiro acesso no sistema
+    //VariavÈis de Primeiro acesso no sistema
     string IdAdmin = "", SenhaAdmin = "", confSenhAdmin;
 };
 struct TLogin{
-    //Vari√°vies de Login
+    //Vari·vies de Login
     string IdAutenticacao, SenhaAutenticacao,confSenhAutentic;
+};
+struct TFuncionario{
+    string idFuncionario, nomeFuncionario, cpfFuncionario,emailFuncionario, senhaFuncionario, confSenhaFuncionario, cargo;
 };
 /* ==== Modulo do Menu Principal ==== */
 void MenuPrincipal(){
@@ -28,7 +31,7 @@ void MenuPrincipal(){
 void MenuCadastro(){
     system("cls");
     cout<<endl<<"==== Modulo de Cadastro ===="
-        <<endl<<"1.Cadastro de Funcion√°rios"
+        <<endl<<"1.Cadastro de Funcion·rios"
         <<endl<<"2.Cadastro de Clientes"
         <<endl<<"3.Cadastro de Produtos"
         <<endl<<"4.Cadastro de Fornecedores"
@@ -39,18 +42,20 @@ void MenuCadastro(){
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    //Vari√°veis de Escolha dos Menus
+    /*-Vari·veis de Escolha dos Menus-*/
     int opMenuPrincipal, opMenuCadastro, opMenuCargo;
-    //Variav√©is de Primeiro acesso no sistema
+    /*-VariavÈis de Primeiro acesso no sistema-*/
     const int MaxTamAdmin = 1;
     array<TAdmin, MaxTamAdmin> acessAdmin;
     int contAdmin=0;
-    //Vari√°vies de Login
+    /*-Vari·vies de Login-*/
     const int MaxTamLogin = 10;
     array<TLogin, MaxTamLogin> login;
     int contLogin = 0;
-    //Variaveis Funcion√°rio
-    string idFuncionario, nomeFuncionario, cpfFuncionario,emailFuncionario, senhaFuncionario, confSenhaFuncionario, cargo;
+    /*-Variaveis Funcion·rio-*/
+    const int MaxTamFuncionarios = 10;
+    array<TFuncionario, MaxTamFuncionarios> CdFuncionario;
+    int contFuncion = 0;
     //Variaveis Cliente
     string idCliente, nomeCliente, registo,EmailCliente, telefoneCliente, enderecoCliente;
     //Variaveis Produto
@@ -58,11 +63,11 @@ int main()
     //Variaveis Fornecedores
     string idFornecedor, nomeFornecedor, cnpjFornecedor, enderecoFornecedor, telefoneFornecedor, emailFornecedor;
     
-    // Verifica√ß√£o se o m√°ximo de admins foi atingido
+    // VerificaÁ„o se o m·ximo de admins foi atingido
     if(contAdmin < MaxTamAdmin){
         //Primeiro acesso no sistema
         if(acessAdmin.at(contAdmin).IdAdmin == ""){
-            //La√ßo de repeti√ß√£o de verifica√ß√£o de senha
+            //LaÁo de repetiÁ„o de verificaÁ„o de senha
             cout<<endl<<"==== Primeiro Acesso ===="
                 <<endl<<"Nenhum administrador foi encontrado!!"
                 <<endl<<"Crie sua conta de admin agora: "<<endl
@@ -83,17 +88,17 @@ int main()
         }
     }
     else{
-        cout<<endl<<"Cadastro de Administradores est√° completo!!";
+        cout<<endl<<"Cadastro de Administradores est· completo!!";
     }
-    // Verifica√ß√£o se o m√°ximo de logins foi atingido
+    // VerificaÁ„o se o m·ximo de logins foi atingido
     if(contLogin < MaxTamLogin){
-        // La√ßo de repeti√ß√£o Autentica√ß√£o
+        // LaÁo de repetiÁ„o AutenticaÁ„o
         do { 
             system("cls");
             cout<<endl<<"======== Login ========"
                 <<endl<<"Id Funcionario...: ";
             getline(cin, login.at(contLogin).IdAutenticacao);
-                //La√ßo de repeti√ß√£o de verifica√ß√£o de senha
+                //LaÁo de repetiÁ„o de verificaÁ„o de senha
                     cout<<endl<<"Senha...: ";
                     getline(cin, login.at(contLogin).SenhaAutenticacao);
                     // Mensagens de erro
@@ -109,14 +114,14 @@ int main()
     contLogin++;
     }
     else{
-        cout<<endl<<"M√°ximo de login por instancia atingido! Saia do sistema para reiniciar.";
+        cout<<endl<<"M·ximo de login por instancia atingido! Saia do sistema para reiniciar.";
     }
-    //Mensagem de Autentica√ß√£o
+    //Mensagem de AutenticaÁ„o
     cout<<endl<<"Login realizado com sucesso!"<<endl;
     system("pause");
-    //La√ßo de repeti√ß√£o do menu principal
+    //LaÁo de repetiÁ„o do menu principal
     do{
-    //Fun√ß√£o do Menu Principal
+    //FunÁ„o do Menu Principal
     MenuPrincipal();
     cin>>opMenuPrincipal;
         //Controle de Fluxo do Menu Principal
@@ -125,81 +130,83 @@ int main()
         /* == Modulo de Cadastro == */
         case 1:
             do{
-            //Fun√ß√£o do Menu de Cadastro
+            //FunÁ„o do Menu de Cadastro
             MenuCadastro();
             cin>>opMenuCadastro;
                 /*== Controle de Fluxo do Menu_Cadastro ==*/
                 switch (opMenuCadastro)
                 {
                 case 1:
-                //Cadastro de Funcion√°rios
-                    system("cls");
-                    cout<<endl<<"==== Cadastro de Funcionario ===="
-                    //Entrada de Dados do Funcion√°rio
-                        <<endl<<"Insira o nome...: ";
-                    cin.ignore();
-                    getline(cin, nomeFuncionario);
-                    
-                    cout<<endl<<"Insira o CPF...: ";
-                    getline(cin, cpfFuncionario);
+                if(contFuncion < MaxTamFuncionarios){
+                    //Cadastro de Funcion·rios
+                        system("cls");
+                        cout<<endl<<"==== Cadastro de Funcionario ===="
+                        //Entrada de Dados do Funcion·rio
+                            <<endl<<"Insira o nome...: ";
+                        cin.ignore();
+                        getline(cin, CdFuncionario.at(contFuncion).nomeFuncionario);
+                        
+                        cout<<endl<<"Insira o CPF...: ";
+                        getline(cin, CdFuncionario.at(contFuncion).cpfFuncionario);
 
-                    cout<<endl<<"Insira o E-mail...: ";
-                    getline(cin, emailFuncionario);
-                    
-                    //la√ßo de repeti√ß√£o para verifica√ß√£o de senha
-                    do{
-                        //Adicionar caracteres para a senha
-                        cout<<endl<<"Insira a senha...: ";
-                        getline(cin, senhaFuncionario);
-                        cout<<endl<<"Confirme a senha...: ";
-                        getline(cin, confSenhaFuncionario);
+                        cout<<endl<<"Insira o E-mail...: ";
+                        getline(cin, CdFuncionario.at(contFuncion).emailFuncionario);
                         
-                        //Mensagem de erro para senhas diferentes
-                        if(confSenhaFuncionario != senhaFuncionario){
-                            cout<<endl<<"Senhas diferentes, tente novamente!!"<<endl;
-                            system("pause");
-                        }
-                    }while(confSenhaFuncionario != senhaFuncionario);
-                    
-                    cout<<endl<<"======== Cargos ========"
-                        <<endl<<"1.Gerente"
-                        <<endl<<"2.Vendedor"
-                        <<endl<<"3.Estoquista"
-                        <<endl<<"Selecione o Cargo do funcion√°rio...: ";
-                    cin>>opMenuCargo;
-                    cout<<endl<<"========================"<<endl;
-                    
-                    do{
-                        switch (opMenuCargo)
-                        {
-                        case 1:
-                            cargo = "Gerente";
-                            break;
-                        case 2:
-                            cargo = "Vendedor";
-                            break;
-                        case 3:
-                            cargo = "Estoquista";
-                            break;
+                        //laÁo de repetiÁ„o para verificaÁ„o de senha
+                        do{
+                            //Adicionar caracteres para a senha
+                            cout<<endl<<"Insira a senha...: ";
+                            getline(cin, CdFuncionario.at(contFuncion).senhaFuncionario);
+                            cout<<endl<<"Confirme a senha...: ";
+                            getline(cin, CdFuncionario.at(contFuncion).confSenhaFuncionario);
+                            
+                            //Mensagem de erro para senhas diferentes
+                            if(CdFuncionario.at(contFuncion).confSenhaFuncionario != CdFuncionario.at(contFuncion).senhaFuncionario){
+                                cout<<endl<<"Senhas diferentes, tente novamente!!"<<endl;
+                                system("pause");
+                            }
+                        }while(CdFuncionario.at(contFuncion).confSenhaFuncionario != CdFuncionario.at(contFuncion).senhaFuncionario);
                         
-                        default:
-                            cout<<endl<<"Op√ß√£o errada, tente novamente!!";
-                            break;
-                        }
-                    }while(opMenuCargo <1 || opMenuCargo > 3);
-                    //Exibi√ß√£o das informa√ß√µes de Cadastro do funcion√°rio
-                    system("cls");
-                    cout<<endl<<"==== Exibi√ß√£o Cadastro Funcion√°rio ===="
-                        <<endl<<"ID: 1234-1"
-                        <<endl<<"Nome: "<<nomeFuncionario
-                        <<endl<<"CPF: "<<cpfFuncionario
-                        <<endl<<"E-mail: "<<emailFuncionario
-                        //Futuramente exibir (Senha: ****) 
-                        <<endl<<"Cargo: "<<cargo
-                        <<endl<<"======================================="<<endl;
-                    cout<<endl<<"Voltando para menu Principal, limite de 1 cadastro de funcion√°rio atingido!!"<<endl;
-                    system("pause");
-                    break;
+                        cout<<endl<<"======== Cargos ========"
+                            <<endl<<"1.Gerente"
+                            <<endl<<"2.Vendedor"
+                            <<endl<<"3.Estoquista"
+                            <<endl<<"Selecione o Cargo do funcion·rio...: ";
+                        cin>>opMenuCargo;
+                        cout<<endl<<"========================"<<endl;
+                        do{
+                            switch (opMenuCargo)
+                            {
+                            case 1:
+                                CdFuncionario.at(contFuncion).cargo = "Gerente";
+                                break;
+                            case 2:
+                                CdFuncionario.at(contFuncion).cargo = "Vendedor";
+                                break;
+                            case 3:
+                                CdFuncionario.at(contFuncion).cargo = "Estoquista";
+                                break;
+                            
+                            default:
+                                cout<<endl<<"OpÁ„o errada, tente novamente!!";
+                                break;
+                            }
+                        }while(opMenuCargo <1 || opMenuCargo > 3);
+                        //ExibiÁ„o das informaÁıes de Cadastro do funcion·rio
+                        system("cls");
+                        cout<<endl<<"==== Cadastro realizado com sucesso ===="
+                            <<endl<<"ID: 1234-1"
+                            <<endl<<"Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario
+                            <<endl<<"CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario
+                            <<endl<<"E-mail: "<<CdFuncionario.at(contFuncion).emailFuncionario
+                            //Futuramente exibir (Senha: ****) 
+                            <<endl<<"Cargo: "<<CdFuncionario.at(contFuncion).cargo
+                            <<endl<<"======================================="<<endl;
+                        system("pause");
+                        contFuncion++;
+                }
+                break;
+                
                 case 2:
                 //Cadastro de Clientes 
                 system("cls");
@@ -218,18 +225,18 @@ int main()
                     cout<<endl<<"Insira o telefone...: ";
                     getline(cin, telefoneCliente);
                     
-                    cout<<endl<<"Insira o endere√ßo...: ";
+                    cout<<endl<<"Insira o endereÁo...: ";
                     getline(cin, enderecoCliente);
                     
-                    //Exibi√ß√£o das informa√ß√µes de Cadastro do Cliente
+                    //ExibiÁ„o das informaÁıes de Cadastro do Cliente
                     system("cls");
-                    cout<<endl<<"==== Exibi√ß√£o Cadastro Cliente ===="
+                    cout<<endl<<"==== ExibiÁ„o Cadastro Cliente ===="
                         <<endl<<"ID: 1234-1"
                         <<endl<<"Nome: "<<nomeCliente
                         <<endl<<"CPF: "<<registo
                         <<endl<<"E-mail: "<<EmailCliente
                         <<endl<<"Telefone: "<<telefoneCliente
-                        <<endl<<"Endere√ßo: "<<enderecoCliente
+                        <<endl<<"EndereÁo: "<<enderecoCliente
                         <<endl<<"==================================="<<endl;
                     cout<<endl<<"Voltando para menu Principal, limite de 1 cadastro de Cliente atingido!!"<<endl;
                     system("pause");
@@ -248,10 +255,10 @@ int main()
 
                     cout<<endl<<"Insira a Data de Validade do produto...: ";
                     getline(cin,dataValidade);
-                    //Exibi√ß√£o das informa√ß√µes de Cadastro do Produto
+                    //ExibiÁ„o das informaÁıes de Cadastro do Produto
         
                     system("cls");
-                    cout<<endl<<"==== Exibi√ß√£o Cadastro do Produto ===="
+                    cout<<endl<<"==== ExibiÁ„o Cadastro do Produto ===="
                         <<endl<<"ID: 1234"
                         <<endl<<"Nome: "<<nomeProduto
                         <<endl<<"Marca: "<<marcaProduto
@@ -272,7 +279,7 @@ int main()
                     cout<<endl<<"Insira o CNPJ...: ";
                     getline(cin, cnpjFornecedor);
 
-                    cout<<endl<<"Insira o endere√ßo do fornecedor...: ";
+                    cout<<endl<<"Insira o endereÁo do fornecedor...: ";
                     getline(cin,enderecoFornecedor);
                     
                     cout<<endl<<"Insira o telefone do fornecedor...: ";
@@ -281,14 +288,14 @@ int main()
                     cout<<endl<<"Insira o email do fornecedor...: ";
                     getline(cin,emailFornecedor);
 
-                    //Exibi√ß√£o das informa√ß√µes de Cadastro do Produto
+                    //ExibiÁ„o das informaÁıes de Cadastro do Produto
         
                     system("cls");
-                    cout<<endl<<"==== Exibi√ß√£o Cadastro do Fornecedor ===="
+                    cout<<endl<<"==== ExibiÁ„o Cadastro do Fornecedor ===="
                         <<endl<<"ID: 1234"
                         <<endl<<"Nome: "<<nomeFornecedor
                         <<endl<<"CNPJ: "<<cnpjFornecedor
-                        <<endl<<"Endere√ßo: "<<enderecoFornecedor
+                        <<endl<<"EndereÁo: "<<enderecoFornecedor
                         <<endl<<"Telefone...: "<<telefoneFornecedor
                         <<endl<<"E-mail: "<<emailFornecedor
                         <<endl<<"========================================="<<endl;
@@ -301,7 +308,7 @@ int main()
                     break;
                     
                 default:
-                    cout<<endl<<"Op√ß√£o inv√°lida!!";
+                    cout<<endl<<"OpÁ„o inv·lida!!";
                     break;
                 }
                 //Fechamento do Modulo de Cadastro
@@ -322,7 +329,7 @@ int main()
             break;
             
         default:
-            cout<<endl<<"Op√ß√£o incorreta, tente novamente!!";
+            cout<<endl<<"OpÁ„o incorreta, tente novamente!!";
             break;
         }
     }while(opMenuPrincipal != 0);

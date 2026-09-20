@@ -5,21 +5,25 @@
 using namespace std;  
 /* ==== Structs principais ====*/
 struct TAdmin{
-    //Variáveis de Primeiro acesso no sistema
+    /*-Struct Admin-*/
     string IdAdmin = "", SenhaAdmin = "";
 };
 struct TFuncionario{
+    /*-Struct Funcionário-*/
     string idFuncionario, nomeFuncionario, cpfFuncionario,emailFuncionario, senhaFuncionario, cargo;
 };
 struct TCliente{
+    /*-Struct Cliente-*/
     string idCliente, nomeCliente, registo,EmailCliente, telefoneCliente, enderecoCliente;
 
 };
 struct TProduto{
+    /*-Struct Produto-*/
     string idProduto, nomeProduto, marcaProduto, lote, dataValidade;
 
 };
 struct TFornecedor{
+    /*-Struct Fornecedor-*/
     string idFornecedor, nomeFornecedor, cnpjFornecedor, enderecoFornecedor, telefoneFornecedor, emailFornecedor;
 
 };

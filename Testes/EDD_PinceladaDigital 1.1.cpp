@@ -37,7 +37,6 @@ void MenuPrincipal(){
         <<endl<<"3.Sair da Conta"
         <<endl<<"0.Sair"
         <<endl<<"Escolha: ";
-
 }
 /* ==== Modulo de Cadastro ====*/
 void MenuCadastro(){
@@ -208,7 +207,7 @@ int main()
                         //Gerando o Id do funcionário
                         conversor.str("");
                         conversor.clear();
-                        conversor << setw(5) << setfill('0') << geradorIdFuncion;
+                        conversor << setw(4) << setfill('0') << geradorIdFuncion;
                         CdFuncionario.at(contFuncion).idFuncionario = conversor.str();
                         //Exibição das informações de Cadastro do funcionário
                         system("cls");
@@ -251,7 +250,7 @@ int main()
                         //Gerando o ID do cliente
                         conversor.str("");
                         conversor.clear();
-                        conversor << setw(5) << setfill('0') << geradorIdClient;
+                        conversor << setw(4) << setfill('0') << geradorIdClient;
                         CdClientes.at(contClient).idCliente = conversor.str();
                         //Exibição das informações de Cadastro do Cliente
                         system("cls");
@@ -287,13 +286,13 @@ int main()
                         //Gerando o ID do Produto
                         conversor.str("");
                         conversor.clear();
-                        conversor << setw(5) << setfill('0') << geradorIdProduto;
+                        conversor<<setw(4) << setfill('0') << geradorIdProduto;
                         CdProdutos.at(contProdut).idProduto = conversor.str();
                         //Exibição das informações de Cadastro do Produto
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
                             <<endl<<"==== Informações Cadastro do Produto ===="
-                            <<endl<<"ID: 1234"
+                            <<endl<<"Código do Produto: "<<CdProdutos.at(contProdut).idProduto
                             <<endl<<"Nome: "<<CdProdutos.at(contProdut).nomeProduto
                             <<endl<<"Marca: "<<CdProdutos.at(contProdut).marcaProduto
                             <<endl<<"Data de Validade: "<<CdProdutos.at(contProdut).dataValidade
@@ -327,7 +326,7 @@ int main()
                         //Gerando o ID do Funcionário
                         conversor.str("");
                         conversor.clear();
-                        conversor << setw(5) << setfill('0') << geradorIdFornec;
+                        conversor << setw(4) << setfill('0') << geradorIdFornec;
                         CdFornecedores.at(contFornec).idFornecedor = conversor.str();      
                         //Exibição das informações de Cadastro do Produto
                         system("cls");

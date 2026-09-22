@@ -10,7 +10,7 @@ struct TAdmin{
     string IdAdmin = "", SenhaAdmin = "";
 };
 struct TFuncionario{
-    /*-Struct Funcionário-*/
+    /*-Struct Funcion?rio-*/
     string idFuncionario, nomeFuncionario, cpfFuncionario,emailFuncionario, senhaFuncionario, cargo;
 };
 struct TCliente{
@@ -42,7 +42,7 @@ void MenuPrincipal(){
 void MenuCadastro(){
     system("cls");
     cout<<endl<<"==== Modulo de Cadastro ===="
-        <<endl<<"1.Cadastro de Funcionários"
+        <<endl<<"1.Cadastro de Funcion?rios"
         <<endl<<"2.Cadastro de Clientes"
         <<endl<<"3.Cadastro de Produtos"
         <<endl<<"4.Cadastro de Fornecedores"
@@ -53,40 +53,40 @@ void MenuCadastro(){
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    /*-Variáveis de Escolha dos Menus-*/
+    /*-Vari?veis de Escolha dos Menus-*/
     int opMenuPrincipal, opMenuCadastro, opMenuCargo;
     /*-Variavel do conversor de IDs*/
     stringstream conversor;
-    /*-Variáveis de Primeiro acesso no sistema-*/
+    /*-Vari?veis de Primeiro acesso no sistema-*/
     const int MaxTamAdmin = 1;
     array<TAdmin, MaxTamAdmin> acessAdmin;
     int contAdmin=0;
-    /*-Variavel de Confirmação de senha*/
+    /*-Variavel de Confirma??o de senha*/
     string confirmacaoTemporaria;
-    /*-Variáveis de Login-*/
+    /*-Vari?veis de Login-*/
     string idLogin, senhaLogin;
-    /*-Variaveis Funcionário-*/
+    /*-Variaveis Funcion?rio-*/
     const int MaxTamFuncionarios = 10;
     array<TFuncionario, MaxTamFuncionarios> CdFuncionario;
-    int contFuncion = 0, geradorIdFuncion = 0;
+    int contFuncion = 0, geradorIdFuncion = 1;
     /*-Variaveis Cliente-*/
     const int MaxTamClientes = 10;
     array<TCliente, MaxTamClientes> CdClientes;
-    int contClient = 0, geradorIdClient = 0;
+    int contClient = 0, geradorIdClient = 1;
     /*-Variaveis Produto-*/
     const int MaxTamProduto = 10;
     array<TProduto, MaxTamProduto> CdProdutos;
-    int contProdut = 0, geradorIdProduto = 0;
+    int contProdut = 0, geradorIdProduto = 1;
     /*-Variaveis Fornecedores-*/
     const int MaxTamFornecedor = 10;
     array<TFornecedor, MaxTamFornecedor> CdFornecedores;
-    int contFornec = 0, geradorIdFornec = 0;
+    int contFornec = 0, geradorIdFornec = 1;
 
-    // Verificação se o máximo de admins foi atingido
+    // Verifica??o se o m?ximo de admins foi atingido
     if(contAdmin < MaxTamAdmin){
         //Primeiro acesso no sistema
         if(acessAdmin.at(contAdmin).IdAdmin == ""){
-            //Laço de repetição de verificação de senha
+            //La?o de repeti??o de verifica??o de senha
             cout<<endl<<"==== Primeiro Acesso ===="
                 <<endl<<"Nenhum administrador foi encontrado!!"
                 <<endl<<"Crie sua conta de admin agora: "<<endl
@@ -107,15 +107,15 @@ int main()
         }
     }
     else{
-        cout<<endl<<"Cadastro de Administradores está completo!!";
+        cout<<endl<<"Cadastro de Administradores est? completo!!";
     }
-    // Laço de repetição Autenticação
+    // La?o de repeti??o Autentica??o
     do { 
         system("cls");
         cout<<endl<<"======== Login ========"
             <<endl<<"Id Funcionario...: ";
         getline(cin, idLogin);
-            //Laço de repetição de verificação de senha
+            //La?o de repeti??o de verifica??o de senha
                 cout<<endl<<"Senha...: ";
                 getline(cin, senhaLogin);
                 // Mensagens de erro
@@ -128,12 +128,12 @@ int main()
                     system("pause");
                 }  
     }while(idLogin != acessAdmin.at(0).IdAdmin || senhaLogin != acessAdmin.at(0).SenhaAdmin);
-    //Mensagem de Autenticação
+    //Mensagem de Autentica??o
     cout<<endl<<"Login realizado com sucesso!"<<endl;
     system("pause");
-    //Laço de repetição do menu principal
+    //La?o de repeti??o do menu principal
     do{
-    //Função do Menu Principal
+    //Fun??o do Menu Principal
     MenuPrincipal();
     cin>>opMenuPrincipal;
         //Controle de Fluxo do Menu Principal
@@ -142,7 +142,7 @@ int main()
         /* == Modulo de Cadastro == */
         case 1:
             do{
-            //Função do Menu de Cadastro
+            //Fun??o do Menu de Cadastro
             MenuCadastro();
             cin>>opMenuCadastro;
                 /*== Controle de Fluxo do Menu_Cadastro ==*/
@@ -150,10 +150,10 @@ int main()
                 {
                 case 1:
                 if(contFuncion < MaxTamFuncionarios){
-                    //Cadastro de Funcionários
+                    //Cadastro de Funcion?rios
                         system("cls");
                         cout<<endl<<"==== Cadastro de Funcionario ===="
-                        //Entrada de Dados do Funcionário
+                        //Entrada de Dados do Funcion?rio
                             <<endl<<"Insira o nome...: ";
                         cin.ignore();
                         getline(cin, CdFuncionario.at(contFuncion).nomeFuncionario);
@@ -164,7 +164,7 @@ int main()
                         cout<<endl<<"Insira o E-mail...: ";
                         getline(cin, CdFuncionario.at(contFuncion).emailFuncionario);
                         
-                        //laço de repetição para verificação de senha
+                        //la?o de repeti??o para verifica??o de senha
                         do{
                             //Adicionar caracteres para a senha
                             cout<<endl<<"Insira a senha...: ";
@@ -183,7 +183,7 @@ int main()
                             <<endl<<"1.Gerente"
                             <<endl<<"2.Vendedor"
                             <<endl<<"3.Estoquista"
-                            <<endl<<"Selecione o Cargo do funcionário...: ";
+                            <<endl<<"Selecione o Cargo do funcion?rio...: ";
                         cin>>opMenuCargo;
                         cout<<endl<<"========================"<<endl;
                         do{
@@ -200,19 +200,19 @@ int main()
                                 break;
                             
                             default:
-                                cout<<endl<<"Opção errada, tente novamente!!";
+                                cout<<endl<<"Op??o errada, tente novamente!!";
                                 break;
                             }
                         }while(opMenuCargo <1 || opMenuCargo > 3);
-                        //Gerando o Id do funcionário
+                        //Gerando o Id do funcion?rio
                         conversor.str("");
                         conversor.clear();
                         conversor << setw(4) << setfill('0') << geradorIdFuncion;
                         CdFuncionario.at(contFuncion).idFuncionario = conversor.str();
-                        //Exibição das informações de Cadastro do funcionário
+                        //Exibi??o das informa??es de Cadastro do funcion?rio
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informações Cadastro do Funcionário ===="
+                            <<endl<<"==== Informa??es Cadastro do Funcion?rio ===="
                             <<endl<<"Matricula: "<<CdFuncionario.at(contFuncion).idFuncionario
                             <<endl<<"Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario
                             <<endl<<"CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario
@@ -245,23 +245,23 @@ int main()
                         cout<<endl<<"Insira o telefone...: ";
                         getline(cin, CdClientes.at(contClient).telefoneCliente);
                         
-                        cout<<endl<<"Insira o endereço...: ";
+                        cout<<endl<<"Insira o endere?o...: ";
                         getline(cin, CdClientes.at(contClient).enderecoCliente);
                         //Gerando o ID do cliente
                         conversor.str("");
                         conversor.clear();
                         conversor << setw(4) << setfill('0') << geradorIdClient;
                         CdClientes.at(contClient).idCliente = conversor.str();
-                        //Exibição das informações de Cadastro do Cliente
+                        //Exibi??o das informa??es de Cadastro do Cliente
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informações Cadastro do Cliente ===="
+                            <<endl<<"==== Informa??es Cadastro do Cliente ===="
                             <<endl<<"ID: "<<CdClientes.at(contClient).idCliente
                             <<endl<<"Nome: "<<CdClientes.at(contClient).nomeCliente
                             <<endl<<"CPF: "<<CdClientes.at(contClient).registo
                             <<endl<<"E-mail: "<<CdClientes.at(contClient).EmailCliente
                             <<endl<<"Telefone: "<<CdClientes.at(contClient).telefoneCliente
-                            <<endl<<"Endereço: "<<CdClientes.at(contClient).enderecoCliente
+                            <<endl<<"Endere?o: "<<CdClientes.at(contClient).enderecoCliente
                             <<endl<<"==================================================="<<endl;
                         system("pause");
                         contClient++;
@@ -288,11 +288,11 @@ int main()
                         conversor.clear();
                         conversor<<setw(4) << setfill('0') << geradorIdProduto;
                         CdProdutos.at(contProdut).idProduto = conversor.str();
-                        //Exibição das informações de Cadastro do Produto
+                        //Exibi??o das informa??es de Cadastro do Produto
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informações Cadastro do Produto ===="
-                            <<endl<<"Código do Produto: "<<CdProdutos.at(contProdut).idProduto
+                            <<endl<<"==== Informa??es Cadastro do Produto ===="
+                            <<endl<<"C?digo do Produto: "<<CdProdutos.at(contProdut).idProduto
                             <<endl<<"Nome: "<<CdProdutos.at(contProdut).nomeProduto
                             <<endl<<"Marca: "<<CdProdutos.at(contProdut).marcaProduto
                             <<endl<<"Data de Validade: "<<CdProdutos.at(contProdut).dataValidade
@@ -315,7 +315,7 @@ int main()
                         cout<<endl<<"Insira o CNPJ...: ";
                         getline(cin, CdFornecedores.at(contFornec).cnpjFornecedor);
 
-                        cout<<endl<<"Insira o endereço do fornecedor...: ";
+                        cout<<endl<<"Insira o endere?o do fornecedor...: ";
                         getline(cin, CdFornecedores.at(contFornec).enderecoFornecedor);
                         
                         cout<<endl<<"Insira o telefone do fornecedor...: ";
@@ -323,19 +323,19 @@ int main()
 
                         cout<<endl<<"Insira o email do fornecedor...: ";
                         getline(cin,CdFornecedores.at(contFornec).emailFornecedor);
-                        //Gerando o ID do Funcionário
+                        //Gerando o ID do Funcion?rio
                         conversor.str("");
                         conversor.clear();
                         conversor << setw(4) << setfill('0') << geradorIdFornec;
                         CdFornecedores.at(contFornec).idFornecedor = conversor.str();      
-                        //Exibição das informações de Cadastro do Produto
+                        //Exibi??o das informa??es de Cadastro do Produto
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informações Cadastro do Fornecedor ===="
+                            <<endl<<"==== Informa??es Cadastro do Fornecedor ===="
                             <<endl<<"ID: "<< CdFornecedores.at(contFornec).idFornecedor
                             <<endl<<"Nome: "<<CdFornecedores.at(contFornec).nomeFornecedor
                             <<endl<<"CNPJ: "<<CdFornecedores.at(contFornec).cnpjFornecedor
-                            <<endl<<"Endereço: "<<CdFornecedores.at(contFornec).enderecoFornecedor
+                            <<endl<<"Endere?o: "<<CdFornecedores.at(contFornec).enderecoFornecedor
                             <<endl<<"Telefone...: "<<CdFornecedores.at(contFornec).telefoneFornecedor
                             <<endl<<"E-mail: "<<CdFornecedores.at(contFornec).emailFornecedor
                             <<endl<<"========================================="<<endl;
@@ -350,7 +350,7 @@ int main()
                     break;
                     
                 default:
-                    cout<<endl<<"Opção inválida!!";
+                    cout<<endl<<"Op??o inv?lida!!";
                     break;
                 }
                 //Fechamento do Modulo de Cadastro
@@ -371,7 +371,7 @@ int main()
             break;
             
         default:
-            cout<<endl<<"Opção incorreta, tente novamente!!";
+            cout<<endl<<"Op??o incorreta, tente novamente!!";
             break;
         }
     }while(opMenuPrincipal != 0);

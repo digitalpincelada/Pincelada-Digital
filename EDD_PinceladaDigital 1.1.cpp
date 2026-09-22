@@ -2,6 +2,7 @@
 #include <locale.h>
 #include <string>
 #include <array>
+#include <iomanip>
 using namespace std;  
 /* ==== Structs principais ====*/
 struct TAdmin{
@@ -36,7 +37,6 @@ void MenuPrincipal(){
         <<endl<<"3.Sair da Conta"
         <<endl<<"0.Sair"
         <<endl<<"Escolha: ";
-
 }
 /* ==== Modulo de Cadastro ====*/
 void MenuCadastro(){
@@ -55,6 +55,8 @@ int main()
     setlocale(LC_ALL, "Portuguese");
     /*-Variáveis de Escolha dos Menus-*/
     int opMenuPrincipal, opMenuCadastro, opMenuCargo;
+    /*-Variavel do conversor de IDs*/
+    stringstream conversor;
     /*-Variáveis de Primeiro acesso no sistema-*/
     const int MaxTamAdmin = 1;
     array<TAdmin, MaxTamAdmin> acessAdmin;
@@ -66,19 +68,19 @@ int main()
     /*-Variaveis Funcionário-*/
     const int MaxTamFuncionarios = 10;
     array<TFuncionario, MaxTamFuncionarios> CdFuncionario;
-    int contFuncion = 0;
+    int contFuncion = 0, geradorIdFuncion = 0;
     /*-Variaveis Cliente-*/
     const int MaxTamClientes = 10;
     array<TCliente, MaxTamClientes> CdClientes;
-    int contClient = 0;
+    int contClient = 0, geradorIdClient = 0;
     /*-Variaveis Produto-*/
     const int MaxTamProduto = 10;
     array<TProduto, MaxTamProduto> CdProdutos;
-    int contProdut = 0;
+    int contProdut = 0, geradorIdProduto = 0;
     /*-Variaveis Fornecedores-*/
     const int MaxTamFornecedor = 10;
     array<TFornecedor, MaxTamFornecedor> CdFornecedores;
-    int contFornec = 0;
+    int contFornec = 0, geradorIdFornec = 0;
 
     // Verificação se o máximo de admins foi atingido
     if(contAdmin < MaxTamAdmin){
@@ -202,11 +204,16 @@ int main()
                                 break;
                             }
                         }while(opMenuCargo <1 || opMenuCargo > 3);
+                        //Gerando o Id do funcionário
+                        conversor.str("");
+                        conversor.clear();
+                        conversor << setw(4) << setfill('0') << geradorIdFuncion;
+                        CdFuncionario.at(contFuncion).idFuncionario = conversor.str();
                         //Exibição das informações de Cadastro do funcionário
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
                             <<endl<<"==== Informações Cadastro do Funcionário ===="
-                            <<endl<<"ID: 1234-1"
+                            <<endl<<"Matricula: "<<CdFuncionario.at(contFuncion).idFuncionario
                             <<endl<<"Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario
                             <<endl<<"CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario
                             <<endl<<"E-mail: "<<CdFuncionario.at(contFuncion).emailFuncionario
@@ -215,6 +222,7 @@ int main()
                             <<endl<<"======================================="<<endl;
                         system("pause");
                         contFuncion++;
+                        geradorIdFuncion++;
                 }
                 break;
                 
@@ -239,12 +247,16 @@ int main()
                         
                         cout<<endl<<"Insira o endereço...: ";
                         getline(cin, CdClientes.at(contClient).enderecoCliente);
-                        
+                        //Gerando o ID do cliente
+                        conversor.str("");
+                        conversor.clear();
+                        conversor << setw(4) << setfill('0') << geradorIdClient;
+                        CdClientes.at(contClient).idCliente = conversor.str();
                         //Exibição das informações de Cadastro do Cliente
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
                             <<endl<<"==== Informações Cadastro do Cliente ===="
-                            <<endl<<"ID: 1234-1"
+                            <<endl<<"ID: "<<CdClientes.at(contClient).idCliente
                             <<endl<<"Nome: "<<CdClientes.at(contClient).nomeCliente
                             <<endl<<"CPF: "<<CdClientes.at(contClient).registo
                             <<endl<<"E-mail: "<<CdClientes.at(contClient).EmailCliente
@@ -253,6 +265,7 @@ int main()
                             <<endl<<"==================================================="<<endl;
                         system("pause");
                         contClient++;
+                        geradorIdClient++;
                     }
                     break;     
                 case 3:
@@ -270,18 +283,23 @@ int main()
 
                         cout<<endl<<"Insira a Data de Validade do produto...: ";
                         getline(cin,CdProdutos.at(contProdut).dataValidade);
+                        //Gerando o ID do Produto
+                        conversor.str("");
+                        conversor.clear();
+                        conversor<<setw(4) << setfill('0') << geradorIdProduto;
+                        CdProdutos.at(contProdut).idProduto = conversor.str();
                         //Exibição das informações de Cadastro do Produto
-            
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
                             <<endl<<"==== Informações Cadastro do Produto ===="
-                            <<endl<<"ID: 1234"
+                            <<endl<<"Código do Produto: "<<CdProdutos.at(contProdut).idProduto
                             <<endl<<"Nome: "<<CdProdutos.at(contProdut).nomeProduto
                             <<endl<<"Marca: "<<CdProdutos.at(contProdut).marcaProduto
                             <<endl<<"Data de Validade: "<<CdProdutos.at(contProdut).dataValidade
                             <<endl<<"======================================"<<endl;
                         system("pause");
                         contProdut++;
+                        geradorIdProduto++;
                     }
                     break;   
                 case 4:
@@ -305,13 +323,16 @@ int main()
 
                         cout<<endl<<"Insira o email do fornecedor...: ";
                         getline(cin,CdFornecedores.at(contFornec).emailFornecedor);
-
+                        //Gerando o ID do Funcionário
+                        conversor.str("");
+                        conversor.clear();
+                        conversor << setw(4) << setfill('0') << geradorIdFornec;
+                        CdFornecedores.at(contFornec).idFornecedor = conversor.str();      
                         //Exibição das informações de Cadastro do Produto
-            
                         system("cls");
                         cout<<endl<<"Cadastro realizado com sucesso!!"
                             <<endl<<"==== Informações Cadastro do Fornecedor ===="
-                            <<endl<<"ID: 1234"
+                            <<endl<<"ID: "<< CdFornecedores.at(contFornec).idFornecedor
                             <<endl<<"Nome: "<<CdFornecedores.at(contFornec).nomeFornecedor
                             <<endl<<"CNPJ: "<<CdFornecedores.at(contFornec).cnpjFornecedor
                             <<endl<<"Endereço: "<<CdFornecedores.at(contFornec).enderecoFornecedor
@@ -320,6 +341,7 @@ int main()
                             <<endl<<"========================================="<<endl;
                         system("pause");
                         contFornec++;
+                        geradorIdFornec++;
                     }
                     break;
                 //Voltar para menu principal    

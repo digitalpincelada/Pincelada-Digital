@@ -3,6 +3,7 @@
 #include <string>
 #include <array>
 #include <iomanip>
+#include <sstream>
 using namespace std;  
 /* ==== Structs principais ====*/
 struct TAdmin{
@@ -97,7 +98,7 @@ int main()
     int contFornec = 0, geradorIdFornec = 0;
     /*-Variavies de Consultas-*/
     int opConsultFuncion, opConsultClient, opConsultProdut, opConsultFornec;
-    int escolhaId;
+    string escolhaId;
 
     // Verificacao se o maximo de admins foi atingido
     if(contAdmin < MaxTamAdmin){
@@ -379,53 +380,232 @@ int main()
             break; 
         /* ==== Modulo de Consultas ====*/  
         case 3:
-            ModuloConsultas();
-            cin>>opMenuConsulta;
-
-            switch(opMenuConsulta)
-            {
-            //Consulta Funcionario
-            case 1:
-                cout<<endl<<"-Escolha o tipo de Filtro-"
-                    <<endl<<"1.Filtrar ID"
-                    <<endl<<"2.Filtrar Todos"
-                    <<endl<<"Escolha: ";
-                cin>>opConsultFuncion;
-                switch (opConsultFuncion)
+            do{
+                ModuloConsultas();
+                cin>>opMenuConsulta;
+                switch(opMenuConsulta)
                 {
-                //Filtro Por Id
+                //Consulta Funcionario
                 case 1:
-                    cout<<endl<<"Digite o ID...:";
-                    cin>>escolhaId;
-                    
-                    break;
-                //Filtrar Todos
+                    cout<<endl<<"-Escolha o tipo de Filtro-"
+                        <<endl<<"1.Filtrar ID"
+                        <<endl<<"2.Filtrar Todos"
+                        <<endl<<"Escolha: ";
+                    cin>>opConsultFuncion;
+                    switch (opConsultFuncion)
+                    {
+                    //Filtro Por Id - Funcionários
+                    case 1:
+                        cin.ignore();
+                        cout<<endl<<"Digite o ID...: ";
+                        getline(cin, escolhaId);
+                        {
+                            bool encontrado = false;
+                            for(int x = 0; x < contFuncion; x++){
+                                if(escolhaId==CdFuncionario.at(x).idFuncionario){
+                                    cout<<endl<<"ID: "<<CdFuncionario.at(x).idFuncionario<<" - "
+                                        <<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
+                                        <<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
+                                        <<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
+                                        <<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
+                                        <<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
+                                        <<"Cargo: "<<CdFuncionario.at(x).cargo<<endl;
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+                            if(!encontrado){
+                                cout<<endl<<"ID não encontrado!!"<<endl;
+                            }
+                        }
+                        system("pause");
+                        break;
+                    //Filtrar Todos - Funcionários
+                    case 2:
+                        cout<<endl<<"Lista de Funcionarios Cadastrados"<<endl;
+                        for (int x=0; x<contFuncion; x++){
+                            cout<<endl<<"ID: "<<CdFuncionario.at(x).idFuncionario<<" - "
+                                <<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
+                                <<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
+                                <<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
+                                <<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
+                                <<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
+                                <<"Cargo: "<<CdFuncionario.at(x).cargo<<endl
+                                <<"--------------------------------------------------------"
+                                <<"--------------------------------------------------------"<<endl;
+                        }    
+                        system("pause");
+                        break;
+                        default:
+                            cout<<endl<<"Opção inválida!";
+                            break;
+                    }
+                        break;
+                //Consulta Cliente
                 case 2:
-                cout<<endl<<"Lista de Funcionarios Cadastrados"<<endl;
-                for (int x=0; x<contFuncion; x++) {
-                    cout<<endl<<"ID: "<<CdFuncionario.at(x).idFuncionario<<" - "
-                        <<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
-                        <<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
-                        <<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
-                        <<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
-                        <<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
-                        <<"Cargo: "<<CdFuncionario.at(x).cargo<<endl
-                        <<"--------------------------------------------------------"
-                        <<"--------------------------------------------------------";
-                }                   
+                    cout<<endl<<"-Escolha o tipo de Filtro-"
+                        <<endl<<"1.Filtrar ID"
+                        <<endl<<"2.Filtrar Todos"
+                        <<endl<<"Escolha: ";
+                    cin>>opConsultClient;
+                    switch (opConsultClient)
+                    {
+                    //Filtro Por Id - Cliente
+                    case 1:
+                        cin.ignore();
+                        cout<<endl<<"Digite o ID...: ";
+                        getline(cin, escolhaId);
+                        {
+                            bool encontrado = false;
+                            for(int x = 0; x < contClient; x++){
+                                if(escolhaId==CdClientes.at(x).idCliente){
+                                    cout<<endl<<"ID: "<<CdClientes.at(x).idCliente<<" - "
+                                    <<"Nome: "<<CdClientes.at(x).nomeCliente<<" - "
+                                    <<"CPF: "<<CdClientes.at(x).registo<<" - "
+                                    <<"E-mail: "<<CdClientes.at(x).EmailCliente<<" - "
+                                    <<"Telefone: "<<CdClientes.at(x).telefoneCliente<<" - "
+                                    <<"Endereco: "<<CdClientes.at(x).enderecoCliente<<endl;
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+                            if(!encontrado){
+                                cout<<endl<<"ID não encontrado!!"<<endl;
+                            }
+                        }
+                        system("pause");
+                        break;
+                    //Filtrar Todos - Clientes
+                    case 2:
+                        cout<<endl<<"Lista de Clientes Cadastrados"<<endl;
+                        for (int x=0; x<contClient; x++){
+                            cout<<endl<<"ID: "<<CdClientes.at(x).idCliente<<" - "
+                                <<"Nome: "<<CdClientes.at(x).nomeCliente<<" - "
+                                <<"CPF: "<<CdClientes.at(x).registo<<" - "
+                                <<"E-mail: "<<CdClientes.at(x).EmailCliente<<" - "
+                                <<"Telefone: "<<CdClientes.at(x).telefoneCliente<<" - "
+                                <<"Endereco: "<<CdClientes.at(x).enderecoCliente<<endl
+                                <<"--------------------------------------------------------"
+                                <<"--------------------------------------------------------"<<endl;
+                        }    
+                        system("pause");
+                        break;
+                        default:
+                            cout<<endl<<"Opção inválida!";
+                            break;
+                    }
+                    break;
+                //Consultas Produtos
+                case 3:
+                    cout<<endl<<"-Escolha o tipo de Filtro-"
+                        <<endl<<"1.Filtrar ID"
+                        <<endl<<"2.Filtrar Todos"
+                        <<endl<<"Escolha: ";
+                    cin>>opConsultProdut;
+                    switch (opConsultProdut)
+                    {
+                    //Filtro Por Id - Produtos
+                    case 1:
+                        cin.ignore();
+                        cout<<endl<<"Digite o ID...: ";
+                        getline(cin, escolhaId);
+                        {
+                            bool encontrado = false;
+                            for(int x = 0; x < contProdut; x++){
+                                if(escolhaId==CdProdutos.at(x).idProduto){
+                                    cout<<endl<<"ID: "<<CdProdutos.at(x).idProduto<<" - "
+                                        <<"Nome: "<<CdProdutos.at(x).nomeProduto<<" - "
+                                        <<"Marca: "<<CdProdutos.at(x).marcaProduto<<" - "
+                                        <<"Lote: "<<CdProdutos.at(x).lote<<" - "
+                                        <<"Data de Validade: "<<CdProdutos.at(x).dataValidade<<endl;
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+                            if(!encontrado){
+                                cout<<endl<<"ID não encontrado!!"<<endl;
+                            }
+                        }
+                        system("pause");
+                        break;
+                    //Filtrar Todos - Produtos
+                    case 2:
+                        cout<<endl<<"Lista de Produtos Cadastrados"<<endl;
+                        for (int x=0; x<contProdut; x++){
+                            cout<<endl<<"ID: "<<CdProdutos.at(x).idProduto<<" - "
+                                <<"Nome: "<<CdProdutos.at(x).nomeProduto<<" - "
+                                <<"Marca: "<<CdProdutos.at(x).marcaProduto<<" - "
+                                <<"Lote: "<<CdProdutos.at(x).lote<<" - "
+                                <<"Data de Validade: "<<CdProdutos.at(x).dataValidade<<endl
+                                <<"--------------------------------------------------------"
+                                <<"--------------------------------------------------------"<<endl;
+                        }    
+                        system("pause");
+                        break;
+                        default:
+                            cout<<endl<<"Opção inválida!";
+                            break;
+                    }
+                    break;
+                //Consultas Fornecedores
+                case 4: 
+                    cout<<endl<<"-Escolha o tipo de Filtro-"
+                        <<endl<<"1.Filtrar ID"
+                        <<endl<<"2.Filtrar Todos"
+                        <<endl<<"Escolha: ";
+                    cin>>opConsultFornec;
+                    switch (opConsultFornec)
+                    {
+                    //Filtro Por Id - Fornecedore
+                    case 1:
+                        cin.ignore();
+                        cout<<endl<<"Digite o ID...: ";
+                        getline(cin, escolhaId);
+                        {
+                            bool encontrado = false;
+                            for(int x = 0; x < contFornec; x++){
+                                if(escolhaId==CdFornecedores.at(x).idFornecedor){
+                                    cout<<endl<<"ID: "<<CdFornecedores.at(x).idFornecedor<<" - "
+                                        <<"Nome: "<<CdFornecedores.at(x).nomeFornecedor<<" - "
+                                        <<"CNPJ: "<<CdFornecedores.at(x).cnpjFornecedor<<" - "
+                                        <<"Endereço: "<<CdFornecedores.at(x).enderecoFornecedor<<" - "
+                                        <<"Telefone: "<<CdFornecedores.at(x).telefoneFornecedor<<" - "
+                                        <<"Telefone: "<<CdFornecedores.at(x).emailFornecedor<<endl;
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+                            if(!encontrado){
+                                cout<<endl<<"ID nao encontrado!!"<<endl;
+                            }
+                        }
+                        system("pause");
+                        break;
+                    //Filtrar Todos - Fornecedores
+                    case 2:
+                        cout<<endl<<"Lista de Fornecedores Cadastrados"<<endl;
+                        for (int x=0; x<contFornec;x++){
+                            cout<<endl<<"ID: "<<CdProdutos.at(x).idProduto<<" - "
+                                <<"Nome: "<<CdProdutos.at(x).nomeProduto<<" - "
+                                <<"CPF: "<<CdProdutos.at(x).marcaProduto<<" - "
+                                <<"E-mail: "<<CdProdutos.at(x).lote<<" - "
+                                <<"Telefone: "<<CdProdutos.at(x).dataValidade<<endl
+                                <<"--------------------------------------------------------"
+                                <<"--------------------------------------------------------"<<endl;
+                        }    
+                        system("pause");
+                        break;
+                        default:
+                            cout<<endl<<"opcao invalida!";
+                            break;
+                    }
                     break;
                 default:
                     break;
                 }
-                break;
-            case 2:
-            
-                break;
-            default:
-                break;
-            }
-            
-            
+                
+            }while(opMenuConsulta != 0);
+            break; 
         /* == Sair da Conta == */
         case 4:
             cout<<endl<<"Em desenvolvimento"<<endl;

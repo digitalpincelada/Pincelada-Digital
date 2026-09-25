@@ -83,19 +83,19 @@ int main()
     const int MaxTamFuncionarios = 10;
     array<TFuncionario, MaxTamFuncionarios> CdFuncionario;
     int opMenuCargo;
-    int contFuncion = 0, geradorIdFuncion = 0;
+    int contFuncion = 0, geradorIdFuncion = 1;
     /*-Variaveis Cliente-*/
     const int MaxTamClientes = 10;
     array<TCliente, MaxTamClientes> CdClientes;
-    int contClient = 0, geradorIdClient = 0;
+    int contClient = 0, geradorIdClient = 1;
     /*-Variaveis Produto-*/
     const int MaxTamProduto = 10;
     array<TProduto, MaxTamProduto> CdProdutos;
-    int contProdut = 0, geradorIdProduto = 0;
+    int contProdut = 0, geradorIdProduto = 1;
     /*-Variaveis Fornecedores-*/
     const int MaxTamFornecedor = 10;
     array<TFornecedor, MaxTamFornecedor> CdFornecedores;
-    int contFornec = 0, geradorIdFornec = 0;
+    int contFornec = 0, geradorIdFornec = 1;
     /*-Variavies de Consultas-*/
     int opConsultFuncion, opConsultClient, opConsultProdut, opConsultFornec;
     string escolhaId;

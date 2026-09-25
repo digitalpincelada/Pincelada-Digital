@@ -83,19 +83,19 @@ int main()
     const int MaxTamFuncionarios = 10;
     array<TFuncionario, MaxTamFuncionarios> CdFuncionario;
     int opMenuCargo;
-    int contFuncion = 0, geradorIdFuncion = 0;
+    int contFuncion = 0, geradorIdFuncion = 1;
     /*-Variaveis Cliente-*/
     const int MaxTamClientes = 10;
     array<TCliente, MaxTamClientes> CdClientes;
-    int contClient = 0, geradorIdClient = 0;
+    int contClient = 0, geradorIdClient = 1;
     /*-Variaveis Produto-*/
     const int MaxTamProduto = 10;
     array<TProduto, MaxTamProduto> CdProdutos;
-    int contProdut = 0, geradorIdProduto = 0;
+    int contProdut = 0, geradorIdProduto = 1;
     /*-Variaveis Fornecedores-*/
     const int MaxTamFornecedor = 10;
     array<TFornecedor, MaxTamFornecedor> CdFornecedores;
-    int contFornec = 0, geradorIdFornec = 0;
+    int contFornec = 0, geradorIdFornec = 1;
     /*-Variavies de Consultas-*/
     int opConsultFuncion, opConsultClient, opConsultProdut, opConsultFornec;
     string escolhaId;
@@ -556,7 +556,7 @@ int main()
                     cin>>opConsultFornec;
                     switch (opConsultFornec)
                     {
-                    //Filtro Por Id - Fornecedore
+                    //Filtro Por Id - Fornecedores
                     case 1:
                         cin.ignore();
                         cout<<endl<<"Digite o ID...: ";
@@ -570,7 +570,7 @@ int main()
                                         <<"CNPJ: "<<CdFornecedores.at(x).cnpjFornecedor<<" - "
                                         <<"Endereço: "<<CdFornecedores.at(x).enderecoFornecedor<<" - "
                                         <<"Telefone: "<<CdFornecedores.at(x).telefoneFornecedor<<" - "
-                                        <<"Telefone: "<<CdFornecedores.at(x).emailFornecedor<<endl;
+                                        <<"E-mail: "<<CdFornecedores.at(x).emailFornecedor<<endl;
                                     encontrado = true;
                                     break;
                                 }
@@ -585,11 +585,12 @@ int main()
                     case 2:
                         cout<<endl<<"Lista de Fornecedores Cadastrados"<<endl;
                         for (int x=0; x<contFornec;x++){
-                            cout<<endl<<"ID: "<<CdProdutos.at(x).idProduto<<" - "
-                                <<"Nome: "<<CdProdutos.at(x).nomeProduto<<" - "
-                                <<"CPF: "<<CdProdutos.at(x).marcaProduto<<" - "
-                                <<"E-mail: "<<CdProdutos.at(x).lote<<" - "
-                                <<"Telefone: "<<CdProdutos.at(x).dataValidade<<endl
+                            cout<<endl<<"ID: "<<CdFornecedores.at(x).idFornecedor<<" - "
+                                        <<"Nome: "<<CdFornecedores.at(x).nomeFornecedor<<" - "
+                                        <<"CNPJ: "<<CdFornecedores.at(x).cnpjFornecedor<<" - "
+                                        <<"Endereço: "<<CdFornecedores.at(x).enderecoFornecedor<<" - "
+                                        <<"Telefone: "<<CdFornecedores.at(x).telefoneFornecedor<<" - "
+                                        <<"E-mail: "<<CdFornecedores.at(x).emailFornecedor<<endl
                                 <<"--------------------------------------------------------"
                                 <<"--------------------------------------------------------"<<endl;
                         }    
@@ -601,6 +602,7 @@ int main()
                     }
                     break;
                 default:
+                    cout<<endl<<"Opção Inválida!";
                     break;
                 }
                 

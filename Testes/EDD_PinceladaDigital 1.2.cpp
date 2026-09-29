@@ -32,36 +32,47 @@ struct TFornecedor{
 /* ==== Modulo do Menu Principal ==== */
 void MenuPrincipal(){
     system("cls");
-    cout<<endl<<"==== Menu Principal ===="
-        <<endl<<"1.Modulo de Cadastro"   
-        <<endl<<"2.Modulo de Venda"
-        <<endl<<"3.Modulo de Consultas"
-        <<endl<<"4.Sair da Conta"
-        <<endl<<"0.Sair"
-        <<endl<<"Escolha: ";
+    cout<<endl<<"======================="
+        <<endl<<"|   Menu Principal    |"
+        <<endl<<"======================="
+        <<endl<<"-----------------------"
+        <<endl<<"|1.Modulo de Cadastro |"
+        <<endl<<"|2.Modulo de Venda    |"
+        <<endl<<"|3.Modulo de Consultas|"
+        <<endl<<"|4.Sair da Conta      |"
+        <<endl<<"|0.Sair               |"
+        <<endl<<"----------------------"
+        <<endl<<"Escolha uma Opção: ";
 }
 /* ==== Modulo de Cadastro ====*/
 void MenuCadastro(){
     system("cls");
-    cout<<endl<<"==== Modulo de Cadastro ===="
-        <<endl<<"1.Cadastro de Funcionarios"
-        <<endl<<"2.Cadastro de Clientes"
-        <<endl<<"3.Cadastro de Produtos"
-        <<endl<<"4.Cadastro de Fornecedores"
-        <<endl<<"0.Voltar"
+    cout<<endl<<"==========================="
+        <<endl<<"|    Modulo de Cadastro    |"
+        <<endl<<"==========================="
+        <<endl<<"---------------------------"
+        <<endl<<"|1.Cadastro de Funcionários|"
+        <<endl<<"|2.Cadastro de Clientes    |"
+        <<endl<<"|3.Cadastro de Produtos    |"
+        <<endl<<"|4.Cadastro de Fornecedores|"
+        <<endl<<"|0.Voltar                  |"
+        <<endl<<"---------------------------"
         <<endl<<"Escolha: ";
-        
 }
 /* ==== Modulo de Consultas ====*/
 void ModuloConsultas(){
     system("cls");
-    cout<<endl<<"==== Modulo de Consultas ===="
-        <<endl<<"1.Consulta de Funcionarios"
-        <<endl<<"2.Consulta de Clientes"
-        <<endl<<"3.Consulta de Produtos"
-        <<endl<<"4.Consulta de Fornecedores"
-        <<endl<<"0.Voltar"
-        <<endl<<"Escolha: ";
+    cout<<endl<<"|===========================|"
+        <<endl<<"|    Modulo de Consultas    |"
+        <<endl<<"|===========================|"
+        <<endl<<"|---------------------------|"
+        <<endl<<"|1.Consulta de Funcionarios |"
+        <<endl<<"|2.Consulta de Clientes     |"
+        <<endl<<"|3.Consulta de Produtos     |"
+        <<endl<<"|4.Consulta de Fornecedores |"
+        <<endl<<"|0.Voltar                   |"
+        <<endl<<"|---------------------------|"
+        <<endl<<"Escolha uma Opção: ";
 }
 
 int main()
@@ -105,9 +116,13 @@ int main()
         //Primeiro acesso no sistema
         if(acessAdmin.at(contAdmin).IdAdmin == ""){
             //Laco de repeticao de verificacao de senha
-            cout<<endl<<"==== Primeiro Acesso ===="
-                <<endl<<"Nenhum administrador foi encontrado!!"
-                <<endl<<"Crie sua conta de admin agora: "<<endl
+            cout<<endl<<"======================================="
+                <<endl<<"|          Primeiro Acesso            |"
+                <<endl<<"======================================="
+                <<endl<<"---------------------------------------"
+                <<endl<<"| Nenhum Administrador foi Encontrado!|"
+                <<endl<<"| Crie uma nova Conta admin:          |"
+                <<endl<<"---------------------------------------"<<endl
                 <<endl<<"Crie um Id (ex: xxxx)...: ";
                 getline(cin, acessAdmin.at(contAdmin).IdAdmin);
                 do{
@@ -130,8 +145,10 @@ int main()
     // Laco de repeticao Autenticacao
     do { 
         system("cls");
-        cout<<endl<<"======== Login ========"
-            <<endl<<"Id Funcionario...: ";
+    cout<<endl<<"======================="
+        <<endl<<"|       Login         |"
+        <<endl<<"======================="
+        <<endl<<"Id Funcionario...: ";
         getline(cin, idLogin);
             //Laco de repeticao de verificacao de senha
                 cout<<endl<<"Senha...: ";
@@ -170,9 +187,14 @@ int main()
                 if(contFuncion < MaxTamFuncionarios){
                     //Cadastro de Funcionarios
                         system("cls");
-                        cout<<endl<<"==== Cadastro de Funcionario ===="
-                        //Entrada de Dados do Funcionario
-                            <<endl<<"Insira o nome...: ";
+                        cout<<endl<<"|============================|"
+                            <<endl<<"|   Cadastro de Funcionario  |"
+                            <<endl<<"|============================|"
+                            //Entrada de Dados do Funcionario
+                            <<endl<<"|Insira o nome...: ";
+
+
+
                         cin.ignore();
                         getline(cin, CdFuncionario.at(contFuncion).nomeFuncionario);
                         
@@ -198,10 +220,10 @@ int main()
                         }while(confirmacaoTemporaria != CdFuncionario.at(contFuncion).senhaFuncionario);
                         
                         cout<<endl<<"======== Cargos ========"
-                            <<endl<<"1.Gerente"
-                            <<endl<<"2.Vendedor"
-                            <<endl<<"3.Estoquista"
-                            <<endl<<"Selecione o Cargo do funcionario...: ";
+                            <<endl<<"|1.Gerente             |"
+                            <<endl<<"|2.Vendedor            |"
+                            <<endl<<"|3.Estoquista          |"
+                            <<endl<<"|Selecione o Cargo do funcionario...: ";
                         cin>>opMenuCargo;
                         cout<<endl<<"========================"<<endl;
                         do{
@@ -229,15 +251,19 @@ int main()
                         CdFuncionario.at(contFuncion).idFuncionario = conversor.str();
                         //Exibicao das informacoes de Cadastro do funcionario
                         system("cls");
-                        cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informacoes Cadastro do Funcionario ===="
-                            <<endl<<"Matricula: "<<CdFuncionario.at(contFuncion).idFuncionario
-                            <<endl<<"Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario
-                            <<endl<<"CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario
-                            <<endl<<"E-mail: "<<CdFuncionario.at(contFuncion).emailFuncionario
+                        cout<<endl<<"|==========================================================|"
+                            <<endl<<"|        Cadastro realizado com sucesso !                  |"
+                            <<endl<<"|==========================================================|"
+                            <<endl<<"|     Informacoes Cadastro do Funcionario                  |"
+                            <<endl<<"|----------------------------------------------------------|"
+                            <<endl<<"|Matricula: "<<CdFuncionario.at(contFuncion).idFuncionario 
+                            <<endl<<"|Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario     
+                            <<endl<<"|CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario      
+                            <<endl<<"|E-mail: "<<CdFuncionario.at(contFuncion).emailFuncionario 
+                            <<endl<<"|Cargo:"<<CdFuncionario.at(contFuncion).cargo
                             //Futuramente exibir (Senha: ****) 
-                            <<endl<<"Cargo: "<<CdFuncionario.at(contFuncion).cargo
-                            <<endl<<"======================================="<<endl;
+                            
+                            <<endl<<"===========================================================|"<<endl;
                         system("pause");
                         contFuncion++;
                         geradorIdFuncion++;
@@ -248,9 +274,11 @@ int main()
                     if(contClient < MaxTamClientes){
                         //Cadastro de Clientes 
                         system("cls");
-                        cout<<endl<<"==== Cadastro de Clientes ===="
+                        cout<<endl<<"|===============================|"
+                            <<endl<<"|      Cadastro de Clientes     |"
+                            <<endl<<"|===============================|"
                         //Entrada de Dados do Cliente 
-                            <<endl<<"Insira o nome...: ";
+                            <<endl<<"Insira o Nome...: ";
                         cin.ignore();
                         getline(cin, CdClientes.at(contClient).nomeCliente);
                         
@@ -272,15 +300,17 @@ int main()
                         CdClientes.at(contClient).idCliente = conversor.str();
                         //Exibicao das informacoes de Cadastro do Cliente
                         system("cls");
-                        cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informacoes Cadastro do Cliente ===="
-                            <<endl<<"ID: "<<CdClientes.at(contClient).idCliente
-                            <<endl<<"Nome: "<<CdClientes.at(contClient).nomeCliente
-                            <<endl<<"CPF: "<<CdClientes.at(contClient).registo
-                            <<endl<<"E-mail: "<<CdClientes.at(contClient).EmailCliente
-                            <<endl<<"Telefone: "<<CdClientes.at(contClient).telefoneCliente
-                            <<endl<<"Endereco: "<<CdClientes.at(contClient).enderecoCliente
-                            <<endl<<"==================================================="<<endl;
+                        cout<<endl<<"|==========================================================|"
+                            <<endl<<"|           Cadastro realizado com sucesso!                |"
+                            <<endl<<"|==========================================================|"
+                            <<endl<<"|           Informacoes Cadastro do Cliente                |"
+                            <<endl<<"|ID: "<<CdClientes.at(contClient).idCliente
+                            <<endl<<"|Nome: "<<CdClientes.at(contClient).nomeCliente
+                            <<endl<<"|CPF: "<<CdClientes.at(contClient).registo
+                            <<endl<<"|E-mail: "<<CdClientes.at(contClient).EmailCliente
+                            <<endl<<"|Telefone: "<<CdClientes.at(contClient).telefoneCliente
+                            <<endl<<"|Endereço: "<<CdClientes.at(contClient).enderecoCliente
+                            <<endl<<"|==========================================================|"<<endl;
                         system("pause");
                         contClient++;
                         geradorIdClient++;
@@ -290,14 +320,19 @@ int main()
                     if(contProdut < MaxTamProduto){
                         //Cadastro de Produtos
                         system("cls");
-                        cout<<endl<<"==== Cadastro de Produtos ===="
+                        cout<<endl<<"|===============================|"
+                            <<endl<<"|     Cadastro de Produtos      |"
+                            <<endl<<"|===============================|"
                         //Entrada de Dados do Produto
-                            <<endl<<"Insira o nome do produto...: ";
+                            <<endl<<"|Insira o nome do produto...: ";
                         cin.ignore();
                         getline(cin, CdProdutos.at(contProdut).nomeProduto);
 
                         cout<<endl<<"Insira a marca do produto...: ";
                         getline(cin, CdProdutos.at(contProdut).marcaProduto);
+
+                        cout<<endl<<"Insira o lote do produto...: ";
+                        getline(cin, CdProdutos.at(contProdut).lote);
 
                         cout<<endl<<"Insira a Data de Validade do produto...: ";
                         getline(cin,CdProdutos.at(contProdut).dataValidade);
@@ -308,25 +343,32 @@ int main()
                         CdProdutos.at(contProdut).idProduto = conversor.str();
                         //Exibicao das informacoes de Cadastro do Produto
                         system("cls");
-                        cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informacoes Cadastro do Produto ===="
-                            <<endl<<"Codigo do Produto: "<<CdProdutos.at(contProdut).idProduto
-                            <<endl<<"Nome: "<<CdProdutos.at(contProdut).nomeProduto
-                            <<endl<<"Marca: "<<CdProdutos.at(contProdut).marcaProduto
-                            <<endl<<"Data de Validade: "<<CdProdutos.at(contProdut).dataValidade
-                            <<endl<<"======================================"<<endl;
+                        cout<<endl<<"|=============================================|"
+                            <<endl<<"|      Cadastro realizado com sucesso!        |"
+                            <<endl<<"|=============================================|"
+                            <<endl<<"|      Informacoes Cadastro do Produto        |"
+                            <<endl<<"|---------------------------------------------|"
+                            <<endl<<"|Codigo do Produto: "<<CdProdutos.at(contProdut).idProduto
+                            <<endl<<"|Nome: "<<CdProdutos.at(contProdut).nomeProduto
+                            <<endl<<"|Nome: "<<CdProdutos.at(contProdut).lote
+                            <<endl<<"|Marca: "<<CdProdutos.at(contProdut).marcaProduto
+                            <<endl<<"|Data de Validade: "<<CdProdutos.at(contProdut).dataValidade
+                            <<endl<<"|=============================================|"<<endl;
                         system("pause");
                         contProdut++;
                         geradorIdProduto++;
                     }
-                    break;   
+                    break;    
                 case 4:
                     if(contFornec < MaxTamFornecedor){
                         //Cadastro de Fornecedores
                         system("cls");
-                        cout<<endl<<"==== Cadastro de Fornecedores ===="
+                        cout<<endl<<"|===================================|"
+                            <<endl<<"|      Cadastro de Fornecedores     |"
+                            <<endl<<"|===================================|"
                         //Entrada de Dados do Fornecedor
-                            <<endl<<"Insira o nome do Fornecedor...: ";
+                            <<endl<<"|Insira o nome do Fornecedor...:";
+
                         cin.ignore();
                         getline(cin, CdFornecedores.at(contFornec).nomeFornecedor);
 
@@ -347,16 +389,20 @@ int main()
                         conversor << setw(4) << setfill('0') << geradorIdFornec;
                         CdFornecedores.at(contFornec).idFornecedor = conversor.str();      
                         //Exibicao das informacoes de Cadastro do Produto
-                        system("cls");
-                        cout<<endl<<"Cadastro realizado com sucesso!!"
-                            <<endl<<"==== Informacoes Cadastro do Fornecedor ===="
+                        system("cls");                        
+                        
+                        cout<<endl<<"|===========================================|"
+                            <<endl<<"|      Cadastro realizado com sucesso!      |"
+                            <<endl<<"|===========================================|"
+                            <<endl<<"|    Informacoes Cadastro do Fornecedor     |"
+                            <<endl<<"|-------------------------------------------|"
                             <<endl<<"ID: "<< CdFornecedores.at(contFornec).idFornecedor
                             <<endl<<"Nome: "<<CdFornecedores.at(contFornec).nomeFornecedor
                             <<endl<<"CNPJ: "<<CdFornecedores.at(contFornec).cnpjFornecedor
                             <<endl<<"Endereco: "<<CdFornecedores.at(contFornec).enderecoFornecedor
                             <<endl<<"Telefone...: "<<CdFornecedores.at(contFornec).telefoneFornecedor
                             <<endl<<"E-mail: "<<CdFornecedores.at(contFornec).emailFornecedor
-                            <<endl<<"========================================="<<endl;
+                            <<endl<<"|===========================================|"<<endl;
                         system("pause");
                         contFornec++;
                         geradorIdFornec++;
@@ -368,7 +414,7 @@ int main()
                     break;
                     
                 default:
-                    cout<<endl<<"Opcao invalida!!";
+                    cout<<endl<<"Opção inválida!!";
                     break;
                 }
                 //Fechamento do Modulo de Cadastro
@@ -387,10 +433,12 @@ int main()
                 {
                 //Consulta Funcionario
                 case 1:
-                    cout<<endl<<"-Escolha o tipo de Filtro-"
-                        <<endl<<"1.Filtrar ID"
-                        <<endl<<"2.Filtrar Todos"
-                        <<endl<<"Escolha: ";
+                    cout<<endl<<"|=============================|"
+                        <<endl<<"|  Escolha um tipo de Filtro  |"
+                        <<endl<<"|1.Filtrar por ID:            |"
+                        <<endl<<"|2.Filtrar por Todos:         |"
+                        <<endl<<"|-----------------------------|"
+                        <<endl<<"|Escolha: ";
                     cin>>opConsultFuncion;
                     switch (opConsultFuncion)
                     {
@@ -404,12 +452,12 @@ int main()
                             for(int x = 0; x < contFuncion; x++){
                                 if(escolhaId==CdFuncionario.at(x).idFuncionario){
                                     cout<<endl<<"ID: "<<CdFuncionario.at(x).idFuncionario<<" - "
-                                        <<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
-                                        <<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
-                                        <<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
-                                        <<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
-                                        <<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
-                                        <<"Cargo: "<<CdFuncionario.at(x).cargo<<endl;
+                                        <<endl<<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
+                                        <<endl<<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
+                                        <<endl<<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
+                                        <<endl <<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
+                                        <<endl<<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
+                                        <<endl<<"Cargo: "<<CdFuncionario.at(x).cargo<<endl;
                                     encontrado = true;
                                     break;
                                 }
@@ -425,14 +473,13 @@ int main()
                         cout<<endl<<"Lista de Funcionarios Cadastrados"<<endl;
                         for (int x=0; x<contFuncion; x++){
                             cout<<endl<<"ID: "<<CdFuncionario.at(x).idFuncionario<<" - "
-                                <<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
-                                <<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
-                                <<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
-                                <<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
-                                <<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
-                                <<"Cargo: "<<CdFuncionario.at(x).cargo<<endl
-                                <<"--------------------------------------------------------"
-                                <<"--------------------------------------------------------"<<endl;
+                                <<endl<<"Nome: "<<CdFuncionario.at(x).nomeFuncionario<<" - "
+                                <<endl <<"Matricula: "<<CdFuncionario.at(x).idFuncionario<<" - "
+                                <<endl<<"CPF: "<<CdFuncionario.at(x).cpfFuncionario<<" - "
+                                <<endl<<"e-mail: "<<CdFuncionario.at(x).emailFuncionario<<" - "
+                                <<endl<<"senha: "<<CdFuncionario.at(x).senhaFuncionario<<" - "
+                                <<endl <<"Cargo: "<<CdFuncionario.at(x).cargo
+                                <<endl<<"--------------------------------------------------------"<<endl;
                         }    
                         system("pause");
                         break;
@@ -443,10 +490,12 @@ int main()
                         break;
                 //Consulta Cliente
                 case 2:
-                    cout<<endl<<"-Escolha o tipo de Filtro-"
-                        <<endl<<"1.Filtrar ID"
-                        <<endl<<"2.Filtrar Todos"
-                        <<endl<<"Escolha: ";
+                    cout<<endl<<"|=============================|"
+                        <<endl<<"|  Escolha um tipo de Filtro  |"
+                        <<endl<<"|1.Filtrar por ID:            |"
+                        <<endl<<"|2.Filtrar por Todos:         |"
+                        <<endl<<"|-----------------------------|"
+                        <<endl<<"|Escolha: ";
                     cin>>opConsultClient;
                     switch (opConsultClient)
                     {
@@ -480,13 +529,12 @@ int main()
                         cout<<endl<<"Lista de Clientes Cadastrados"<<endl;
                         for (int x=0; x<contClient; x++){
                             cout<<endl<<"ID: "<<CdClientes.at(x).idCliente<<" - "
-                                <<"Nome: "<<CdClientes.at(x).nomeCliente<<" - "
-                                <<"CPF: "<<CdClientes.at(x).registo<<" - "
-                                <<"E-mail: "<<CdClientes.at(x).EmailCliente<<" - "
-                                <<"Telefone: "<<CdClientes.at(x).telefoneCliente<<" - "
-                                <<"Endereco: "<<CdClientes.at(x).enderecoCliente<<endl
-                                <<"--------------------------------------------------------"
-                                <<"--------------------------------------------------------"<<endl;
+                                <<endl<<"Nome: "<<CdClientes.at(x).nomeCliente<<" - "
+                                <<endl<<"CPF: "<<CdClientes.at(x).registo<<" - "
+                                <<endl<<"E-mail: "<<CdClientes.at(x).EmailCliente<<" - "
+                                <<endl<<"Telefone: "<<CdClientes.at(x).telefoneCliente<<" - "
+                                <<endl<<"Endereco: "<<CdClientes.at(x).enderecoCliente<<endl
+                                <<endl<<"--------------------------------------------------------";
                         }    
                         system("pause");
                         break;
@@ -495,12 +543,14 @@ int main()
                             break;
                     }
                     break;
-                //Consultas Produtos
+                //Consulta Produtos
                 case 3:
-                    cout<<endl<<"-Escolha o tipo de Filtro-"
-                        <<endl<<"1.Filtrar ID"
-                        <<endl<<"2.Filtrar Todos"
-                        <<endl<<"Escolha: ";
+                    cout<<endl<<"|=============================|"
+                        <<endl<<"|  Escolha um tipo de Filtro  |"
+                        <<endl<<"|1.Filtrar por ID:            |"
+                        <<endl<<"|2.Filtrar por Todos:         |"
+                        <<endl<<"|-----------------------------|"
+                        <<endl<<"|Escolha: ";
                     cin>>opConsultProdut;
                     switch (opConsultProdut)
                     {
@@ -533,12 +583,11 @@ int main()
                         cout<<endl<<"Lista de Produtos Cadastrados"<<endl;
                         for (int x=0; x<contProdut; x++){
                             cout<<endl<<"ID: "<<CdProdutos.at(x).idProduto<<" - "
-                                <<"Nome: "<<CdProdutos.at(x).nomeProduto<<" - "
-                                <<"Marca: "<<CdProdutos.at(x).marcaProduto<<" - "
-                                <<"Lote: "<<CdProdutos.at(x).lote<<" - "
-                                <<"Data de Validade: "<<CdProdutos.at(x).dataValidade<<endl
-                                <<"--------------------------------------------------------"
-                                <<"--------------------------------------------------------"<<endl;
+                                <<endl<<"Nome: "<<CdProdutos.at(x).nomeProduto<<" - "
+                                <<endl<<"Marca: "<<CdProdutos.at(x).marcaProduto<<" - "
+                                <<endl<<"Lote: "<<CdProdutos.at(x).lote<<" - "
+                                <<endl<<"Data de Validade: "<<CdProdutos.at(x).dataValidade
+                                <<endl<<"--------------------------------------------------------";
                         }    
                         system("pause");
                         break;
@@ -547,12 +596,14 @@ int main()
                             break;
                     }
                     break;
-                //Consultas Fornecedores
+                //Consulta Fornecedores
                 case 4: 
-                    cout<<endl<<"-Escolha o tipo de Filtro-"
-                        <<endl<<"1.Filtrar ID"
-                        <<endl<<"2.Filtrar Todos"
-                        <<endl<<"Escolha: ";
+                    cout<<endl<<"|=============================|"
+                        <<endl<<"|  Escolha um tipo de Filtro  |"
+                        <<endl<<"|1.Filtrar por ID:            |"
+                        <<endl<<"|2.Filtrar por Todos:         |"
+                        <<endl<<"|-----------------------------|"
+                        <<endl<<"|Escolha: ";
                     cin>>opConsultFornec;
                     switch (opConsultFornec)
                     {
@@ -586,13 +637,12 @@ int main()
                         cout<<endl<<"Lista de Fornecedores Cadastrados"<<endl;
                         for (int x=0; x<contFornec;x++){
                             cout<<endl<<"ID: "<<CdFornecedores.at(x).idFornecedor<<" - "
-                                        <<"Nome: "<<CdFornecedores.at(x).nomeFornecedor<<" - "
-                                        <<"CNPJ: "<<CdFornecedores.at(x).cnpjFornecedor<<" - "
-                                        <<"Endereço: "<<CdFornecedores.at(x).enderecoFornecedor<<" - "
-                                        <<"Telefone: "<<CdFornecedores.at(x).telefoneFornecedor<<" - "
-                                        <<"E-mail: "<<CdFornecedores.at(x).emailFornecedor<<endl
-                                <<"--------------------------------------------------------"
-                                <<"--------------------------------------------------------"<<endl;
+                                <<endl<<"Nome: "<<CdFornecedores.at(x).nomeFornecedor<<" - "
+                                <<endl<<"CNPJ: "<<CdFornecedores.at(x).cnpjFornecedor<<" - "
+                                <<endl<<"Endereço: "<<CdFornecedores.at(x).enderecoFornecedor<<" - "
+                                <<endl<<"Telefone: "<<CdFornecedores.at(x).telefoneFornecedor<<" - "
+                                <<endl<<"E-mail: "<<CdFornecedores.at(x).emailFornecedor<<endl
+                                <<endl<<"--------------------------------------------------------";
                         }    
                         system("pause");
                         break;

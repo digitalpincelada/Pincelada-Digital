@@ -260,7 +260,7 @@ int main()
                             <<endl<<"|Nome: "<<CdFuncionario.at(contFuncion).nomeFuncionario     
                             <<endl<<"|CPF: "<<CdFuncionario.at(contFuncion).cpfFuncionario      
                             <<endl<<"|E-mail: "<<CdFuncionario.at(contFuncion).emailFuncionario 
-                            <<endl<<"|Cargo:"<<CdFuncionario.at(contFuncion).cargo<<" |"
+                            <<endl<<"|Cargo:"<<CdFuncionario.at(contFuncion).cargo
                             //Futuramente exibir (Senha: ****) 
                             
                             <<endl<<"===========================================================|"<<endl;
@@ -304,12 +304,12 @@ int main()
                             <<endl<<"|           Cadastro realizado com sucesso!                |"
                             <<endl<<"|==========================================================|"
                             <<endl<<"|           Informacoes Cadastro do Cliente                |"
-                            <<endl<<"|ID: "<<CdClientes.at(contClient).idCliente<<"             |"
-                            <<endl<<"|Nome: "<<CdClientes.at(contClient).nomeCliente<<"         |"
-                            <<endl<<"|CPF: "<<CdClientes.at(contClient).registo<<"              |"
-                            <<endl<<"|E-mail: "<<CdClientes.at(contClient).EmailCliente<<"      |"
-                            <<endl<<"|Telefone: "<<CdClientes.at(contClient).telefoneCliente<<" |"
-                            <<endl<<"|Endereço: "<<CdClientes.at(contClient).enderecoCliente<<" |"
+                            <<endl<<"|ID: "<<CdClientes.at(contClient).idCliente
+                            <<endl<<"|Nome: "<<CdClientes.at(contClient).nomeCliente
+                            <<endl<<"|CPF: "<<CdClientes.at(contClient).registo
+                            <<endl<<"|E-mail: "<<CdClientes.at(contClient).EmailCliente
+                            <<endl<<"|Telefone: "<<CdClientes.at(contClient).telefoneCliente
+                            <<endl<<"|Endereço: "<<CdClientes.at(contClient).enderecoCliente
                             <<endl<<"|==========================================================|"<<endl;
                         system("pause");
                         contClient++;
@@ -627,7 +627,7 @@ int main()
                                 }
                             }
                             if(!encontrado){
-                                cout<<endl<<"ID não encontrado!!"<<endl;
+                                cout<<endl<<"ID nao encontrado!!"<<endl;
                             }
                         }
                         system("pause");
@@ -647,7 +647,7 @@ int main()
                         system("pause");
                         break;
                         default:
-                            cout<<endl<<"opção invalida!";
+                            cout<<endl<<"opcao invalida!";
                             break;
                     }
                     break;
@@ -669,7 +669,7 @@ int main()
             break;
             
         default:
-            cout<<endl<<"Opção incorreta, tente novamente!!";
+            cout<<endl<<"Opcao incorreta, tente novamente!!";
             break;
         }
     }while(opMenuPrincipal != 0);

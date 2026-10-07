@@ -350,7 +350,7 @@ int main()
                             <<endl<<"|---------------------------------------------|"
                             <<endl<<"|Codigo do Produto: "<<CdProdutos.at(contProdut).idProduto
                             <<endl<<"|Nome: "<<CdProdutos.at(contProdut).nomeProduto
-                            <<endl<<"|Nome: "<<CdProdutos.at(contProdut).lote
+                            <<endl<<"|Lote: "<<CdProdutos.at(contProdut).lote
                             <<endl<<"|Marca: "<<CdProdutos.at(contProdut).marcaProduto
                             <<endl<<"|Data de Validade: "<<CdProdutos.at(contProdut).dataValidade
                             <<endl<<"|=============================================|"<<endl;
